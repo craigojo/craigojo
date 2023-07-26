@@ -1,0 +1,32 @@
+touch 	create a file
+cd	Change directory
+pwd	Present working directory
+mv	Move
+cp	Copy
+less	list file contents
+ls	list directory contents
+mkdir	Directory-name
+rm	Remove a file
+rmdir	Remove directory
+grep	Search for a patternin a text file
+wc	Count lines, words and characters in a text file
+echo
+cat
+head
+tail
+sort
+uniq
+tar,compress,gzip,bzip2
+
+-lt	less than < 
+-gt	greater then >
+
+ls -a *prac* | wc | tee pracDirs | less
+ls -a *prac* | wc | tee pracDirs
+ls prac* | wc 
+ls -d p* | tee test.txt
+
+You may wish to try some of the exercises at https://cmdchallenge.com for more practice. 
+Or, for a more detailed of bash commands, have a look at Bash Notes for Professionals.
+
+cmdchallenge.com
