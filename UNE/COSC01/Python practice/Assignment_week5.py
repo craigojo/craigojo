@@ -1,24 +1,20 @@
 # set d = (key, value)
-d = {'pencil': 10, 'pen': 20, 'paper': 4, 'eraser': 80}
+weight = {'pencil': 10, 'pen': 20, 'paper': 4, 'eraser': 80}
 
 total = 0
 
-for i in d:
-    total += d[i]
+for i in weight:
+    total += weight[i]
+    weight_total = total
 
- item_total = total
 
 
-d = {'pencil': 10, 'pen': 20, 'paper': 4, 'eraser': 80}
+available = {'pencil': 10, 'pen': 20, 'paper': 4, 'eraser': 80}
 
 total = 0
 
-for i in d:
-    total += d[i]
+for i in available:
+    total += available[i]
+    total = total
 
- item_total = total
 
-    
-    
-    
-print(sum(d.values()))
