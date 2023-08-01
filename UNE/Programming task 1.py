@@ -11,10 +11,19 @@ Happy customers: 15
 Unhappy customers: 0
 Ratio of happy to unhappy customers: 0.00'''
 
-input_a = input("Please enter the number of stops on this route: " )
-route_number = int(input_a)
-
 max_passengers = 35
+route_number = input(int("What is the route number: "))
+start = input(int("How many passengers on bus at start of route? :"))
+number_of_stops = input(int("Please enter the number of stops on this route: " ))
+
+
+stop = 0
+while stop < number_of_stops:
+    get_off = input(("How many to depart at this stop?"))
+    get_on = input(int("How many waiting to get on at this stop?"))
+    
+
+
 
 
 
@@ -38,3 +47,7 @@ while i < x:
     stop += stop
 
 
+bus=Bus(int(input('Bus number:')))
+
+
+stops=int(input('Stops:'))
