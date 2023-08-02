@@ -12,11 +12,12 @@ Unhappy customers: 0
 Ratio of happy to unhappy customers: 0.00'''
 
 max_passengers = 35
-max_passengers = int(max_passengers)
+
 unhappy = 0
-unhappy = int(unhappy)
+total_passanger=0
+
 current_load = 0
-current_load = int(current_load)
+
 stop = -1
 
 
@@ -25,6 +26,11 @@ start = int(input("How many passengers waiting for bus at start of route? :"))
 if start > max_passengers:
     print("Sorry, our maximum capacity is 35, some will need to wait for next bus")
     unhappy += start - max_passengers
+    current_load = 35
+    total_passanger += start
+else:
+    current_load = start
+    total_passanger += start
 
 number_of_stops = int(input("Please enter the number of stops on this route: " ))
 
@@ -32,22 +38,21 @@ number_of_stops = int(input("Please enter the number of stops on this route: " )
 
 
 while stop < number_of_stops:
-    
     get_on = int(input("How many waiting to get on at this stop?"))
     get_off = int(input("How many to depart at this stop?"))
     stop += 1
-    vacated_capacity = current_load - get_off
-    available_capcity = max_passengers - vacated_capacity
-    new_load = available_capcity + get_on
-    if new_load > max_passengers:
-        over_load = new_load - max_passengers
-        print (f"Not enough capacity for all passengers, {over_load} will need to wait for next bus")
-        unhappy += over_load
+    print(current_load)
+    avaialable_seats = max_passengers-current_load+get_off
+    print(avaialable_seats)
+    if get_on <= avaialable_seats:
+        current_load += get_on - get_off
+    else:
+        left_on_stop= get_on-avaialable_seats
+        unhappy += left_on_stop
+        current_load += get_on-get_off-left_on_stop
+    print(unhappy)
+    print(current_load)
 
-
-    if get_on > 35:
-        print ("Too many passengers, some will need to stay")
-        unhappy += get_on - max_passengers
 print(unhappy)
         
 
