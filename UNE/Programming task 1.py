@@ -41,19 +41,27 @@ while stop < number_of_stops:
     
     if get_on > get_off:
         required = get_on - get_off
-        if current_load + required > max_passengers:
-            left_on_stop= max_passengers - current_load - required
-            if left_on_stop < 0:
-                    left_on_stop = left_on_stop * -1
+        if (current_load + required) > max_passengers:
+            left_on_stop = required - (max_passengers - current_load)
+            # if left_on_stop < 0:
+            #         left_on_stop = left_on_stop * -1
             unhappy += left_on_stop
             current_load = max_passengers
+            total_passengers += required - left_on_stop
+            stop += 1
+            print(f"else unhappy passengers at stop {stop} = {left_on_stop}")
+            print(f"else Current load = {current_load}")
+            print(f"else Available capacity = {available_seats}")
+            print(available_seats, max_passengers, current_load, get_off, get_on, unhappy)
         else:
 
-            total_passengers += current_load + required
-        stop += 1
-        print(f"else unhappy passengers at stop {stop} = {left_on_stop}")
-        print(f"else Current load = {current_load}")
-        print(f"else Available capacity = {available_seats}")
+            total_passengers += current_load + get_on
+            stop += 1
+            available_seats = max_passengers - current_load + get_on
+            print(available_seats, max_passengers, current_load, get_off, get_on, unhappy)
+            print(f"else unhappy passengers at stop {stop} = {left_on_stop}")
+            print(f"else Current load = {current_load}")
+            print(f"else Available capacity = {available_seats}")
 
         
     elif get_off > get_on:
@@ -66,9 +74,7 @@ while stop < number_of_stops:
         print(f"Available capacity {available_seats}")
         stop += 1
 
-    available_seats = max_passengers - current_load
-    print(available_seats, max_passengers, current_load, get_off, get_on, unhappy)
-
+       
  
  
     # print(f"Available capacity {available_seats}")
