@@ -7,9 +7,11 @@ current_load = 0
 stop = 0
 available_seats = 0
 required = 0
-
+left_on_stop = 0
 
 route_number = int(input("What is the route number: "))
+print("Please enter a valid number")
+
 print(f"Bus Route Number = {route_number}")
 start = int(input("How many passengers waiting for bus at start of route? :"))
 print(f"Bus passengers at start of route = {start}")
@@ -39,10 +41,12 @@ while stop < number_of_stops:
     print(f"Passengers waiting to depart bus at stop {stop + 1} = {get_off}")
     # print(current_load)
     
+    
     if get_on > get_off:
         required = get_on - get_off
-        if (current_load + required) > max_passengers:
+        if current_load + required > max_passengers:
             left_on_stop = required - (max_passengers - current_load)
+            print('1')
             # if left_on_stop < 0:
             #         left_on_stop = left_on_stop * -1
             unhappy += left_on_stop
@@ -55,19 +59,24 @@ while stop < number_of_stops:
             print(available_seats, max_passengers, current_load, get_off, get_on, unhappy)
         else:
 
-            total_passengers += current_load + get_on
-            stop += 1
-            available_seats = max_passengers - current_load + get_on
+            total_passengers += get_on
+            current_load += get_on - get_off
+            print(2)
+            
+            available_seats = max_passengers - current_load
+            
             print(available_seats, max_passengers, current_load, get_off, get_on, unhappy)
             print(f"else unhappy passengers at stop {stop} = {left_on_stop}")
             print(f"else Current load = {current_load}")
             print(f"else Available capacity = {available_seats}")
+            stop += 1
 
         
-    elif get_off > get_on:
+    elif get_off >= get_on:
+        print(3)
         required = get_off - get_on
 
-        current_load = current_load + required
+        current_load = current_load - required
         print(f"Current load = {current_load}")
         total_passengers += get_on
         available_seats = max_passengers - current_load
