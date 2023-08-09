@@ -99,15 +99,14 @@ while stop < number_of_stops:
         get_off =  input(f"How many to depart at bus stop {stop + 1}?")
         try:
             get_off = int(get_off)
-        except ValueError:
-            print("Please enter a number")  
-        try:
             i =  current_load - get_off + get_on
-            i > max_passengers
-            print("Departing passengers cannot be larger than current passengers in the bus")
-        except:
-            get_off < current_load
-            break
+            print(available_seats, max_passengers, current_load, get_off, get_on, unhappy)
+            if i > max_passengers:
+                print("Departing passengers cannot be larger than current passengers in the bus")
+            else:
+                break
+        except ValueError:
+            print("Please enter a number")
 
         get_off = int(get_off)
 
@@ -122,7 +121,7 @@ while stop < number_of_stops:
             left_on_stop = required - (max_passengers - current_load)
             print('1')
             unhappy += left_on_stop
-            current_load = max_passengers
+            current_load = max_passengers ##
             total_passengers += required - left_on_stop
             stop += 1
             print(f"else unhappy passengers at stop {stop} = {left_on_stop}")
