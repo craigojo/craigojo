@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 max_passengers = 35                         # Maximum bus seating capacity.
 unhappy = 0                                 # Totals the number of passengers left behind for route.
 total_passengers=0                          # Total number of passengers for route.
@@ -58,7 +59,7 @@ print(f"Number of stops on this route = {number_of_stops}")
 while stop < number_of_stops:    
     if stop != first_stop:
         while True:
-            commuter_on =  input(f"How many to depart at bus stop {stop + 1}?")
+            commuter_on =  input(f"How many to depart at bus stop {stop + 1} ?")
             try:
                 commuter_on = int(commuter_on)
                 if commuter_on < 0:
@@ -85,7 +86,7 @@ while stop < number_of_stops:
     if stop != last_stop:
         while True:
             current_stop_unhappy = 0
-            commuter_off = input(f"How many passengers were waiting to get on at stop {stop + 1}?")
+            commuter_off = input(f"How many passengers were waiting to get on at stop {stop + 1} ?")
             try:
                 commuter_off = int(commuter_off)
                 if commuter_off < 0:
@@ -119,7 +120,7 @@ while stop < number_of_stops:
 #   - Ratio of unhappy passengers to happy passengers to two decimal places.
 
 print(f"Unhappy customers (Total) = {unhappy}.")
-print(f"Total of all passengers for route = {total_passengers}.")
+print(f"Total of all passengers for route = {total_passengers}")
 if unhappy == 0:
     print("Customer satisfaction 100% guaranteed.")
 else:
