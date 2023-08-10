@@ -1,12 +1,8 @@
-                        # Variables are set
-max_passengers = 35                         # Maximum bas seating capacity.
-unhappy = 0                                 # Number of passengers left behind at a stop. No room.
+max_passengers = 35                         # Maximum bus seating capacity.
+unhappy = 0                                 # Totals the number of passengers left behind for route.
 total_passengers=0                          # Total number of passengers for route.
 current_load = 0                            # Current load of passegers on the bus.
-stop = 0                                    # Counter stores the curent stop number.
-available_seats = 0                         # Available seats on the bus.
-required = 0                                # Number of seats available at each stop.
-left_on_stop = 0                            # Number of passengers left waiting at each stop.
+stop = 0                                    # Counter stores the current stop number.
 number_of_stops = 0                         # Number of stops along the route.
 first_stop = 0
 last_stop = number_of_stops - 1
@@ -16,8 +12,6 @@ last_stop = number_of_stops - 1
 
 # Input qestion for bus driver to enter route number.
 # The input is validated as a positive integer. Letters / words not accepted.
-
-
 
 while True:        
     try:
@@ -59,7 +53,7 @@ print(f"Number of stops on this route = {number_of_stops}")
 # The driver is asked how many will depart the bus. The value provided by the driver is checked and must be less than or equal to the 
 # current number of passengers on the bus. If stop is last stop the driver is prompted to specify how many will depart the bus, 
 # the value provided must equal current number of passengers on the bus. 
-# The inputed is validated as a postive integer. Letters / words not accepted.
+# The input is validated as a postive integer. Letters / words not accepted.
 
 while stop < number_of_stops:    
     if stop != first_stop:
@@ -83,9 +77,6 @@ while stop < number_of_stops:
 
 
 
-
-# Question, . The while function verifies stop number is less than the stored variable value.
-# The input is validated as a postive integer. Letters / words not accepted.
 
 # Question, How many waiting to board bus at the stop. The while function verifies stop number is less than the stored variable value.
 # The number of passengers to board the bus is compared to current passenger load subtracted from bus capacity
@@ -112,10 +103,6 @@ while stop < number_of_stops:
 
         print(f"Passengers waiting at bus stop {stop + 1} = {commuter_off}")
 
-
-
-# Increments stop counter. Terminates the function when stop = number_of_stops.
-
     stop += 1
   
     
@@ -128,7 +115,7 @@ while stop < number_of_stops:
 
 # The following print statements contain values for.
 #   - Total for all passengers that boarded the bus.
-#   - Total for passengers left waiting at all stops.
+#   - Total for passengers left waiting along the route.
 #   - Ratio of unhappy passengers to happy passengers to two decimal places.
 
 print(f"Unhappy customers (Total) = {unhappy}.")
