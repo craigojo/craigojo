@@ -62,7 +62,7 @@ while stop < number_of_stops:
             try:
                 commuter_on = int(commuter_on)
                 if commuter_on < 0:
-                    print("Invalid number of passengers, Please enter a non-negative integer")
+                    print("Invalid number of passengers, Please enter a non-negative integer.")
                 elif commuter_on > current_load:
                     print(f"Departing passengers cannot be larger than current passengers ({current_load}) in the bus. Please try again.")
                 elif stop == last_stop and current_load != commuter_on:
@@ -73,7 +73,7 @@ while stop < number_of_stops:
             except ValueError:
                 print("Please enter a number, letters or words not accepted.")
 
-        print(f"Passengers waiting to depart bus at stop {stop + 1} = {commuter_on}.")
+        print(f"Passengers waiting to depart bus at stop {stop + 1} = {commuter_on}")
 
 
 
