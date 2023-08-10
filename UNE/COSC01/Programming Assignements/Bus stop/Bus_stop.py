@@ -59,7 +59,7 @@ print(f"Number of stops on this route = {number_of_stops}")
 while stop < number_of_stops:    
     if stop != first_stop:
         while True:
-            commuter_on =  input(f"How many to depart at bus stop {stop + 1} ?")
+            commuter_on =  input(f"How many to depart at bus stop {stop + 1}? ")
             try:
                 commuter_on = int(commuter_on)
                 if commuter_on < 0:
@@ -86,7 +86,7 @@ while stop < number_of_stops:
     if stop != last_stop:
         while True:
             current_stop_unhappy = 0
-            commuter_off = input(f"How many passengers were waiting to get on at stop {stop + 1} ?")
+            commuter_off = input(f"How many passengers were waiting to get on at stop {stop + 1}? ")
             try:
                 commuter_off = int(commuter_off)
                 if commuter_off < 0:
