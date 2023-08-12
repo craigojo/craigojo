@@ -116,10 +116,3 @@ try:
 except ZeroDivisionError:
     print(f"Ratio of happy to unhappy passengers: 0.00")
 
-
-
-# if unhappy == 0:
-#     print(f"Ratio of happy to unhappy passengers: {ratio}")
-# else:
-#     ratio = float(format(total_passengers/unhappy, ".2f"))
-#     print(f"Ratio of happy to unhappy passengers: {ratio}")
