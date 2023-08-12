@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 max_passengers = 35             # Maximum bas seating capacity.
 unhappy = 0                     # Number of passengers left behind at a stop. No room.
-total_passengers=0              # Totak number of passengers for route.
+total_passengers=0              # Total number of passengers for route.
 current_load = 0                # Current load of passegers on the bus.
 stop = 0                        # Counter stores the curent stop number.
 available_seats = 0             # Available seats on the bus.
 number_of_stops = 0
-ratio = 0
+ratio = 0                       # Ratio unhappy passengers.
 first_stop = 0
 
 
@@ -52,8 +52,6 @@ print(f"Number of stops on this route = {number_of_stops}")
 # Starts bus stop loop.
 # Question, How many to depart at stop. Stop number is retrieved from stop variable,
 # incremented by 1 and displayed to the console.
-
-
 
 while stop < number_of_stops:    
     if stop != first_stop:
@@ -109,12 +107,13 @@ while stop < number_of_stops:
 #   - Total for all passengers that boarded the bus.
 #   - Total for passengers left waiting along the route.
 #   - Ratio of unhappy passengers to happy passengers to two decimal places.
- 
+  
 print(f"Route number: {route_number}")
 print(f"Happy customers: {total_passengers}")
 print(f"Unhappy customers: {unhappy}")
-if unhappy == 0:
-    print(f"Ratio of happy to unhappy passengers: {ratio}")
-else:
+try:
     ratio = float(format(total_passengers/unhappy, ".2f"))
     print(f"Ratio of happy to unhappy passengers: {ratio}")
+except ZeroDivisionError:
+    print(f"Ratio of happy to unhappy passengers: 0.00")
+
