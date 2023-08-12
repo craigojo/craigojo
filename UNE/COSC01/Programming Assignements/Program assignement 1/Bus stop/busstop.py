@@ -56,12 +56,12 @@ print(f"Number of stops on this route = {number_of_stops}")
 while stop < number_of_stops:    
     if stop != first_stop:
         while True:
-            passengers_off =  input(f"How many passengers left the bus at stop #{stop + 1}?")
+            passengers_off =  input(f"How many passengers left the bus at stop #{stop + 1}?  ")
             try:
                 passengers_off = int(passengers_off)
                 if passengers_off < 0:
                     print("Invalid number of passengers, Please enter a positve integer")
-                elif passengers_off > current_load:
+                elif (passengers_off > current_load) and (stop != last_stop):
                     print(f"Invalid number of passengers. Only {current_load} passengers were on the bus.")
                 elif stop == last_stop and current_load != passengers_off:
                     print(f"This is the last stop. There should be {current_load} passengers leaving.")
@@ -82,7 +82,7 @@ while stop < number_of_stops:
     if stop != last_stop:
         while True:
             current_stop_unhappy = 0
-            passengers_on = input(f"How many passengers were waiting to get on at stop #{stop + 1}?")
+            passengers_on = input(f"How many passengers were waiting to get on at stop #{stop + 1}?  ")
             try:
                 passengers_on = int(passengers_on)
                 if passengers_on < 0:
