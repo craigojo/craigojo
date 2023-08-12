@@ -1,133 +1,115 @@
 #!/usr/bin/env python3
-max_passengers = 35                         # Maximum bus seating capacity.
-unhappy = 0                                 # Totals the number of passengers left behind for route.
-total_passengers=0                          # Total number of passengers for route.
-current_load = 0                            # Current load of passegers on the bus.
-stop = 0                                    # Counter stores the current stop number.
-number_of_stops = 0                         # Number of stops along the route.
+max_passengers = 35             # Maximum bas seating capacity.
+unhappy = 0                     # Number of passengers left behind at a stop. No room.
+total_passengers=0              # Totak number of passengers for route.
+current_load = 0                # Current load of passegers on the bus.
+stop = 0                        # Counter stores the curent stop number.
+available_seats = 0             # Available seats on the bus.
+number_of_stops = 0
+ratio = 0
 first_stop = 0
-last_stop = number_of_stops - 1
 
 
 
 
-# Input qestion for bus driver to enter route number.
-# The input is validated as a positive integer. Letters / words not accepted.
+# Input qestion for bus route number.
+# The input is validated as an integer. Letters / words not accepted.
 
 while True:        
     try:
-        route_number = input("What is the route number: ")
+        route_number = input("Please enter a route number: ")
         route_number = int(route_number)
         if route_number <= 0:
-            print("Invalid route number, Please enter a positive integer.")
+            print("Invalid route number, Please enter a positive integer")
         else:
             break
     except ValueError:
-        print("Please enter a number, letters or words not accepted.")
-print(f"Bus Route Number = {route_number}")
+        print("Invalid route number, Please enter a positive integer")
+print(f"Route Number = {route_number}")
 
 
 
 
-
-# Question for number of stops along bus route.
-# The input is validated as a postive integer. Letters / words not accepted.
+# Question for number of stops along bus route
+# The input is validated as an integer. letters / words not accepted.
 
 while True:
     try:
         number_of_stops = input("Please enter the number of stops on this route: " )
         number_of_stops = int(number_of_stops)
         if  number_of_stops < 3:
-            print("Invalid number of stops, enter an integer with value greater than 2.")
+            print("Invalid number of stops, enter an integer with value greater than 2")
         else:
             break
     except ValueError:
-        print("Please enter a number, letters or words not accepted.")
+        print("Invalid number of stops, enter an integer with value greater than 2")
+last_stop = number_of_stops - 1
 print(f"Number of stops on this route = {number_of_stops}")
 
 
 
 
 # Starts bus stop loop.
+# Question, How many to depart at stop. Stop number is retrieved from stop variable,
+# incremented by 1 and displayed to the console.
 
-# Question, How many waiting to depart bus at the stop. The while function verifies stop number is less than the stored variable value.
-# The driver is asked how many will depart the bus. The value provided by the driver is checked and must be less than or equal to the 
-# current number of passengers on the bus. If stop is last stop the driver is prompted to specify how many will depart the bus, 
-# the value provided must equal current number of passengers on the bus. 
-# The input is validated as a postive integer. Letters / words not accepted.
+
 
 while stop < number_of_stops:    
     if stop != first_stop:
         while True:
-            commuter_on =  input(f"How many to depart at bus stop {stop + 1}? ")
+            passengers_off =  input(f"How many passengers left the bus at stop #{stop + 1}?")
             try:
-                commuter_on = int(commuter_on)
-                if commuter_on < 0:
-                    print("Invalid number of passengers, Please enter a non-negative integer.")
-                elif commuter_on > current_load:
-                    print(f"Departing passengers cannot be larger than current passengers ({current_load}) in the bus. Please try again.")
-                elif stop == last_stop and current_load != commuter_on:
+                passengers_off = int(passengers_off)
+                if passengers_off < 0:
+                    print("Invalid number of passengers, Please enter a positve integer")
+                elif passengers_off > current_load:
                     print(f"Invalid number of passengers. Only {current_load} passengers were on the bus.")
+                elif stop == last_stop and current_load != passengers_off:
+                    print(f"This is the last stop. There should be {current_load} passengers leaving.")
                 else:
-                    current_load -= commuter_on
+                    current_load -= passengers_off
                     break
             except ValueError:
-                print("Please enter a number, letters or words not accepted.")
+                print("Invalid number of passengers, Please enter a positve integerr")
 
-        print(f"Passengers waiting to depart bus at stop {stop + 1} = {commuter_on}")
-
-
-
-
-# Question, How many waiting to board bus at the stop. The while function verifies stop number is less than the stored variable value.
-# The number of passengers to board the bus is compared to current passenger load subtracted from bus capacity
-# The unhappy variable stores passengers left waiting at the stop.
-
-    if stop != last_stop:
-        while True:
-            current_stop_unhappy = 0
-            commuter_off = input(f"How many passengers were waiting to get on at stop {stop + 1}? ")
-            try:
-                commuter_off = int(commuter_off)
-                if commuter_off < 0:
-                    print("Invalid number of passengers, Please enter a non-negative integer.")
-                    continue
-                elif (current_load + commuter_off) > max_passengers:
-                    current_stop_unhappy = current_load + commuter_off - max_passengers
-                    unhappy += current_stop_unhappy
-                    print(f"Sorry, our maximum capacity is 35, {current_stop_unhappy} will need to wait for the next bus.")
-                current_load += commuter_off - current_stop_unhappy
-                total_passengers += commuter_off - current_stop_unhappy
-                break
-            except ValueError:
-                print("Please enter a number, letters or words not accepted.")
-
-        print(f"Passengers waiting at bus stop {stop + 1} = {commuter_off}")
-
-    stop += 1
-  
-    
-
-    
+        print(f"Passengers departed bus stop at {stop + 1} = {passengers_off} ")
  
 
 
 
+# Question, How many waiting at stop. Stop number is retrieved from stop variable,
+# incremented by 1 and displayed to the console.
 
-# The following print statements contain values for.
-#   - Total for all passengers that boarded the bus.
-#   - Total for passengers left waiting along the route.
-#   - Ratio of unhappy passengers to happy passengers to two decimal places.
+    if stop != last_stop:
+        while True:
+            current_stop_unhappy = 0
+            passengers_on = input(f"How many passengers were waiting to get on at stop #{stop + 1}?")
+            try:
+                passengers_on = int(passengers_on)
+                if passengers_on < 0:
+                    print("Invalid number of passengers, Please enter a positve integer")
+                    continue
+                elif (current_load + passengers_on) > max_passengers:
+                    current_stop_unhappy = current_load + passengers_on - max_passengers
+                    unhappy += current_stop_unhappy
+                    print(f"Available seats {max_passengers - current_load}, {current_stop_unhappy} waited for the next bus")
+                current_load += passengers_on - current_stop_unhappy
+                total_passengers += passengers_on - current_stop_unhappy
+                break
+            except ValueError:
+                print("Please enter a number")
+        print(f"Passengers boarding bus stop at {stop + 1} = {passengers_on - current_stop_unhappy} ")   
+    stop += 1
 
-print(f"Unhappy customers (Total) = {unhappy}.")
-print(f"Total of all passengers for route = {total_passengers}")
+
+
+  
+print(f"Route number: {route_number}")
+print(f"Happy customers: {total_passengers}")
+print(f"Unhappy customers: {unhappy}")
 if unhappy == 0:
-    print("Customer satisfaction 100% guaranteed.")
+    print(f"Ratio of happy to unhappy passengers: {ratio}")
 else:
-
-    ratio = float(format(unhappy/total_passengers, ".2f"))
-    print(f"Ratio of happy to unhappy passengers {ratio}")
-print("Thankyou for travelling with us today!!")
-
-
-
+    ratio = float(format(total_passengers/unhappy, ".2f"))
+    print(f"Ratio of happy to unhappy passengers: {ratio}")
