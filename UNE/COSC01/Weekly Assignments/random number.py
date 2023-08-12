@@ -1,7 +1,7 @@
 
 import random
 
-i = random.randint(1, 5)
+i = random.randint(1, 8)
 
 guess = int(input("Enter an integer from 1 to 99: "))
 
