@@ -53,8 +53,6 @@ print(f"Number of stops on this route = {number_of_stops}")
 # Question, How many to depart at stop. Stop number is retrieved from stop variable,
 # incremented by 1 and displayed to the console.
 
-
-
 while stop < number_of_stops:    
     if stop != first_stop:
         while True:
@@ -103,13 +101,14 @@ while stop < number_of_stops:
     stop += 1
 
 
-
+# The following print statements contain values for.
+#   - Total for all passengers that boarded the bus.
+#   - Total for passengers left waiting along the route.
+#   - Ratio of unhappy passengers to happy passengers to two decimal places.
   
 print(f"Route number: {route_number}")
 print(f"Happy customers: {total_passengers}")
 print(f"Unhappy customers: {unhappy}")
-
-
 try:
     ratio = float(format(total_passengers/unhappy, ".2f"))
     print(f"Ratio of happy to unhappy passengers: {ratio}")
