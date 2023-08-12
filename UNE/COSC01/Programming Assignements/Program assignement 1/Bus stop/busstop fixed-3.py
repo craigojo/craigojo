@@ -108,8 +108,18 @@ while stop < number_of_stops:
 print(f"Route number: {route_number}")
 print(f"Happy customers: {total_passengers}")
 print(f"Unhappy customers: {unhappy}")
-if unhappy == 0:
-    print(f"Ratio of happy to unhappy passengers: {ratio}")
-else:
+
+
+try:
     ratio = float(format(total_passengers/unhappy, ".2f"))
     print(f"Ratio of happy to unhappy passengers: {ratio}")
+except ZeroDivisionError:
+    print(f"Ratio of happy to unhappy passengers: 0.00")
+
+
+
+# if unhappy == 0:
+#     print(f"Ratio of happy to unhappy passengers: {ratio}")
+# else:
+#     ratio = float(format(total_passengers/unhappy, ".2f"))
+#     print(f"Ratio of happy to unhappy passengers: {ratio}")
