@@ -104,7 +104,12 @@ while stop < number_of_stops:
 
 
 
-  
+
+# The following print statements contain values for.
+#   - Total for all passengers that boarded the bus.
+#   - Total for passengers left waiting along the route.
+#   - Ratio of unhappy passengers to happy passengers to two decimal places.
+ 
 print(f"Route number: {route_number}")
 print(f"Happy customers: {total_passengers}")
 print(f"Unhappy customers: {unhappy}")
