@@ -4,8 +4,8 @@ def fahrenheit_to_celcius(temp):
     return (temp - 32) / 1.8
 
 
-
-print("Hello")
+if __name__ == "__main__":
+    print("Hello")
 
 
 
