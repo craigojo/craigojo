@@ -24,6 +24,11 @@ tar,compress,gzip,bzip2
 -gt	greater then >
 
 ls -l shows files within a directory plus details.
+ls -l -t
+Or
+ls -lt
+
+
 chmod u=user g=group o=others a=all ie u + g + of
 
 ls -a *prac* | wc | tee pracDirs | less
@@ -38,3 +43,6 @@ cmdchallenge.com
 
 less h
 ls --help offers help for the command
+man lt opens manual
+apropos allows to search a command based on a search criteria
+
