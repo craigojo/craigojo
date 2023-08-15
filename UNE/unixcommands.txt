@@ -1,6 +1,7 @@
 touch 	create a file
 cd	Change directory
-pwd	Present working directory
+cd ../.. home directory also cd ~
+pwd	Present working directory print working directory
 mv	Move also used to rename a file (there is no rename command)
 cp	Copy
 less	list file contents
@@ -27,6 +28,12 @@ ls -l shows files within a directory plus details.
 ls -l -t
 Or
 ls -lt
+ls -a shows all files including hidden
+
+ls .. shows content of uptree location
+ls ~ shows contents of home directory
+ls /dev will show contents of dev from where ever I am
+
 
 
 chmod u=user g=group o=others a=all ie u + g + of
@@ -45,4 +52,8 @@ less h
 ls --help offers help for the command
 man lt opens manual
 apropos allows to search a command based on a search criteria
+.bashrc files allows change of prompt!
+
+vi emacs nano pico text editors (vim)
+
 
