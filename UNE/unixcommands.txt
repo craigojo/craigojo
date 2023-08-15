@@ -1,7 +1,7 @@
 touch 	create a file
 cd	Change directory
 pwd	Present working directory
-mv	Move
+mv	Move also used to rename a file (there is no rename command)
 cp	Copy
 less	list file contents
 ls	list directory contents
@@ -16,10 +16,15 @@ head
 tail
 sort
 uniq
+cat opens a file to view, If the file is long, use less (one page at a time) to scroll document ie
+less copy.txt opens a text file called copy.txt and allows scrolling to view contents
 tar,compress,gzip,bzip2
 
 -lt	less than < 
 -gt	greater then >
+
+ls -l shows files within a directory plus details.
+chmod u=user g=group o=others a=all ie u + g + of
 
 ls -a *prac* | wc | tee pracDirs | less
 ls -a *prac* | wc | tee pracDirs
@@ -30,3 +35,6 @@ You may wish to try some of the exercises at https://cmdchallenge.com for more p
 Or, for a more detailed of bash commands, have a look at Bash Notes for Professionals.
 
 cmdchallenge.com
+
+less h
+ls --help offers help for the command
