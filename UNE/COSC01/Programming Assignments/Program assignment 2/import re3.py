@@ -10,12 +10,9 @@ def read_route_data():
         for line_number, line in enumerate(lines, start=1):
             values = line.strip().split(',')
             if not re.match(r'^\d+(?:,\d+){2}$', line):
-
-                
                 print(f"Error in line {line_number}: Incorrect format")
 
-    
-
+                continue
 
             route = int(values[0])
             if route not in [routes["route"] for routes in data_list]:
@@ -32,6 +29,6 @@ def read_route_data():
                 break
 
 read_route_data()
-print(data_list)
-for data in data_list:
-    print(data)
+
+
+
