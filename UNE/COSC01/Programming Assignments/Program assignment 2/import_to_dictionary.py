@@ -19,18 +19,21 @@ def read_route_data():
             except ValueError:
                 print("Input file must only contain numbers separated by comma's.")
                 break
+            try:
+                if route not in [routes["route"] for routes in data_list]:
+                    dictionary = {
+                        "route": int(values[0]),
+                        "n_happy": int(values[1]),
+                        "n_unhappy": int(values[2])
+                    }
+                    data_list.append(dictionary)
+                else:
+                    print(f"Duplicate route number in line number {line_number} of the {file_name} input file." + "\n" + f"Please verify {file_name} file contains no duplicated data and try again")
+                    break
+            except IndexError:
+                print("Please confirm each text file row contains values separated by comma's, no spaces, for the following" + "\n" + "- Route Number" +"\n"+ "- Number Happy" +"\n" + "- Number Unhappy" )
 
-            if route not in [routes["route"] for routes in data_list]:
-                dictionary = {
-                    "route": int(values[0]),
-                    "n_happy": int(values[1]),
-                    "n_unhappy": int(values[2])
-                }
-                data_list.append(dictionary)
-
-
-            else:
-                print(f"Duplicate route number in line number {line_number} of the {file_name} input file." + "\n" + f"Please verify {file_name} file contains no duplicated data and try again")
                 break
+
 
 read_route_data()
