@@ -14,10 +14,12 @@ def read_route_data():
                 
                 print(f"Error in line {line_number}: Incorrect format")
 
-    
+            try:
+                route = int(values[0])
+            except ValueError:
+                print("Input file must only contain numbers separated by comma's.")
+                break
 
-
-            route = int(values[0])
             if route not in [routes["route"] for routes in data_list]:
                 dictionary = {
                     "route": int(values[0]),
@@ -32,6 +34,3 @@ def read_route_data():
                 break
 
 read_route_data()
-print(data_list)
-for data in data_list:
-    print(data)
