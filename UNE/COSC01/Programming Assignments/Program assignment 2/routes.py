@@ -47,9 +47,7 @@ def read_route_data():
             except IndexError:
                 print("Please confirm each text file row contains values separated by comma's, no spaces, for the following" + "\n" + "- Route Number" +"\n"+ "- Number Happy" +"\n" + "- Number Unhappy" )
 
-                break
-        
-        
+                break       
 
 def sort_route_data():
     try:
@@ -61,17 +59,6 @@ def sort_route_data():
 
 
 
-
 read_route_data()
 sorted_data_list = sort_route_data()
-
-
-
-
-
-
 print(sorted_data_list)
-
-# def sort_route_data():
-
-# except (ValueError, ZeroDivisionError):
