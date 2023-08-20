@@ -20,6 +20,7 @@ def read_route_data():
             except ValueError:
                 print("Input file must only contain numbers separated by comma's.")
                 break
+
             try:
                 if route not in [routes["route"] for routes in data_list]:
                     dictionary = {
@@ -35,8 +36,33 @@ def read_route_data():
                 print("Please confirm each text file row contains values separated by comma's, no spaces, for the following" + "\n" + "- Route Number" +"\n"+ "- Number Happy" +"\n" + "- Number Unhappy" )
 
                 break
+    try:  
+        
+        for update_value in data_list:
+            n_happy = update_value["n_happy"]  
+            n_unhappy = update_value["n_unhappy"]
+            if n_unhappy < 1:
+                return new_value == 0
+            else:
+                new_value = float(format(n_happy / n_unhappy, ".2f"))
+                update_value["happy_ratio"] = new_value
+            
+    except (ValueError, ZeroDivisionError):
+        print()
+        
+        
+
+
+
+
+
 
 
 read_route_data()
+print(data_list)
 
-def sort_route_data():
+# def sort_route_data():
+
+
+
+# ratio = float(format(total_passengers/unhappy, ".2f"))
