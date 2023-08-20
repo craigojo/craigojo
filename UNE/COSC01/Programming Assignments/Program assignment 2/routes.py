@@ -2,6 +2,7 @@ import re
 
 file_name = "routes.txt"
 data_list = []
+sort_list = []
 
 
 def read_route_data():
@@ -37,3 +38,6 @@ def read_route_data():
 
 
 read_route_data()
+
+def sort_route_data():
+    
