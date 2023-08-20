@@ -1,8 +1,10 @@
 import re
+from operator import itemgetter
 
 file_name = "routes.txt"
 data_list = []
-sort_list = []
+
+
 
 
 def read_route_data():
@@ -14,6 +16,7 @@ def read_route_data():
 
                 
                 print(f"Error in line {line_number}: Incorrect format")
+                break
 
             try:
                 route = int(values[0])
@@ -23,10 +26,19 @@ def read_route_data():
 
             try:
                 if route not in [routes["route"] for routes in data_list]:
+                    n_happy = int(values[1])
+                    n_unhappy = int(values[2])
+                    if n_unhappy < 1:
+                        happy_ratio = 0
+                    else:
+
+                        happy_ratio = float(format(n_happy/n_unhappy, ".2f"))
+                    
                     dictionary = {
                         "route": int(values[0]),
                         "n_happy": int(values[1]),
-                        "n_unhappy": int(values[2])
+                        "n_unhappy": int(values[2]),
+                        "happy_ratio": happy_ratio
                     }
                     data_list.append(dictionary)
                 else:
@@ -36,33 +48,30 @@ def read_route_data():
                 print("Please confirm each text file row contains values separated by comma's, no spaces, for the following" + "\n" + "- Route Number" +"\n"+ "- Number Happy" +"\n" + "- Number Unhappy" )
 
                 break
-    try:  
         
-        for update_value in data_list:
-            n_happy = update_value["n_happy"]  
-            n_unhappy = update_value["n_unhappy"]
-            if n_unhappy < 1:
-                return new_value == 0
-            else:
-                new_value = float(format(n_happy / n_unhappy, ".2f"))
-                update_value["happy_ratio"] = new_value
-            
-    except (ValueError, ZeroDivisionError):
+        
+
+def sort_route_data():
+    try:
+        
+        sorted_list = sorted(data_list, key=itemgetter("happy_ratio"), reverse = True)
+        return sorted_list
+    except ValueError:
         print()
-        
-        
-
-
-
 
 
 
 
 read_route_data()
-print(data_list)
+sorted_data_list = sort_route_data()
+
+
+
+
+
+
+print(sorted_data_list)
 
 # def sort_route_data():
 
-
-
-# ratio = float(format(total_passengers/unhappy, ".2f"))
+# except (ValueError, ZeroDivisionError):
