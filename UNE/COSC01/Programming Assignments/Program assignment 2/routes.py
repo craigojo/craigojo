@@ -3,6 +3,7 @@ from operator import itemgetter
 
 file_name = "routes.txt"
 data_list = []
+extra_buses = 0
 
 
 
@@ -58,7 +59,39 @@ def sort_route_data():
         print()
 
 
+def extra_bus_routes():
+    while True:
+        try:
+            extra_buses = int(input("How many routes can have an extra bus? "))
+            
+            
+            if extra_buses <= len(sorted_data_list):   
+                print('You should add busses for the following routes:')
+                for bus in range(extra_buses):
+                        extra_bus_route = sorted_data_list[bus]
+                        print(f"    " + f'{extra_bus_route["route"]}')
+                break
+            else:
+                print("Enter a valid numer")
+
+        except (ValueError, TypeError) as error:
+            print(error)
+
+
+        
+
+
 
 read_route_data()
 sorted_data_list = sort_route_data()
-print(sorted_data_list)
+
+extra_bus_routes()
+
+
+
+
+
+
+
+# (You should add busses for the following routes:)
+
