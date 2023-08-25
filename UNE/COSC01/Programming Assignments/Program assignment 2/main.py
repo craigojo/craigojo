@@ -53,7 +53,7 @@ def extra_bus_routes():
 # Values greater than number of routes are rejected. 
 # User is prompted to enter a value equal to or less than number of routes
             else:
-                 print(f"The value you entered {n}," + "\n" + "is greater than the number of available routes." + "\n" + f"Enter a value no greater than {list_length}" + "\n" + f"{n - (len(sorted_data_list))} busses are free for other routes" + "\n")
+                 print(f"The value you entered {n}," + "\n" + "is greater than the number of available routes." + "\n" + f"Enter a value no greater than {sorted_data_list}" + "\n" + f"{n - (len(sorted_data_list))} busses are free for other routes" + "\n")
 
 # Non integer values are handles. User is prompted to enter an integer  
         except (ValueError):
