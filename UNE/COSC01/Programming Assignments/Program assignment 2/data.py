@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Functions required for the program are imported (regex)
 import re
 
