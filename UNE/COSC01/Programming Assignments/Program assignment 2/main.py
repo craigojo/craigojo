@@ -12,7 +12,7 @@ from data import data_list
 
 
 # Sets variables
-extra_buses = 0
+# extra_buses = 0
 
 
 # Retrieves data_list from the read_dat_file function and sorts using the the "happy_ratio". Sorts in ascending order
@@ -35,7 +35,6 @@ def extra_bus_routes():
 
 # Inputer is prmopted to enter how many routes can have an extra bus (n)
             n = int(input("How many routes can have an extra bus? "))
-            list_length = len(sorted_data_list)
 
 # Input values are validated. n cannot be greater than the number of routes.            
             if (n > 0) and n <= len(sorted_data_list):
@@ -55,8 +54,7 @@ def extra_bus_routes():
 # User is prompted to enter a value equal to or less than number of routes
             else:
                  print(f"The value you entered {n}," + "\n" + "is greater than the number of available routes." + "\n" + f"Enter a value no greater than {list_length}" + "\n" + f"{n - (len(sorted_data_list))} busses are free for other routes" + "\n")
-                 print(len(sorted_data_list))
-                 
+
 # Non integer values are handles. User is prompted to enter an integer  
         except (ValueError):
                 print("Please enter a value greater than 0, no letters or characters.")
