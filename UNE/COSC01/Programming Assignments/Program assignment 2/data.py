@@ -15,6 +15,7 @@ def read_route_data():
     with open(file_name, "r") as file:
         lines = file.readlines()
         for line_number, line in enumerate(lines, start=1):
+
 # Iterates through the text file
 # Spaces are removed, contents indentified by commas.            
             values = line.strip().split(',')
@@ -33,7 +34,6 @@ def read_route_data():
             except ValueError:                                                              
                 print("Input file must only contain numbers separated by comma's.")     
                 break
-
 
             try:
 # Eliminates potential for DivideByZero error.                                                                            
