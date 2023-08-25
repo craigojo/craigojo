@@ -1,7 +1,11 @@
+
+# Functions required for the program are imported
 import re
 from operator import itemgetter
 
+# text file containing raw data is given allocated a variable(name)
 file_name = "routes.txt"
+# Stores filtered data retrieved from the raw data file, that has passed the read_route_data function.
 data_list = []
 extra_buses = 0
 
