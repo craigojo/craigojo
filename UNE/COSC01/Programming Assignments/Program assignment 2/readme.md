@@ -2,36 +2,34 @@
 
 ## About
 > The busstop program was developed following a request from the Mayor of codetown,
-> to develop a program that can be used by the town's school bus drivers to collect information relating
-> to bus passenger numbers, with a view to address concerns raised by parents of bus timetables and the
-> needs of modern working parents. Data derived from this program will be useful in addressing the issue.
+> to develop a program that can be used to address the towns school bus over-crowding issues.
+> The program will be used as a tool to determine which bus routes will benefit most from an addtional bus.
 
 
 ## System Requirements
 >  Linux- Ubuntu 16.04 to 17.10, or Windows 7 to 10, with 2GB RAM (4GB preferable)
 
 ## Installation
-> The *pt1.tgz* contains this *readme.md* file and assignment file *busstop.py*
-> Copy this file (*pti.tgz*) to an empty folder on the system and run the following command line.
-> tar -zxf pt1.tgz
-> This will extract the contents of *pti.tgz* readme.md and busstop.py, to the directory.
+> The *pt2.tgz* contains this *readme.md* file, *main.py* and *data.py* 
+> Copy this file (*pt2.tgz*) to an empty folder on the system and run the following command line.
+> tar -zxf pt2.tgz
+> This will extract the contents of *pt2.tgz* (*readme.md*, *main.py* and *data.py*) to the directory.
 
 ## Executing the program
 > At the command prompt, enter the following command.
-> python3 busstop.py
+> python3 main.py
 
 ## FAQ Inputs
-# The Driver
-1. Enters a bus route number.
-2. Enters the number of stops on the route.
-3. Enters data for numbers of passengers waiting to board and depart the bus for each bus stop.
-4. Enters data for passengers departing at final stop.
+# The input prompts the user to:
+1. List provided by the Mayor of Codetown contains the number of bus routes.
+2. Values entered by data inputer cannot be greater than the number of routes contained with the list provided by the Mayor.
+3. The data inputer enters the number of routes that can have an extra bus.
 
 ## Results
 > Data is analysed and produces the following result.
-- Total of number of passengers for the route.
-- Number of passengers *Unhappy* left at a stop due to insufficient bus capacity.
-- Ratio of of happy passengers to unhappy passengers.
+- Input data is verified, 
+- The routes with highest number of *unhappy* passegers are given higher priority.
+- Program outputs a list of routes that should have an extra bus allocated to it.
 
 ## Maintainer
 > Craig Dennes
