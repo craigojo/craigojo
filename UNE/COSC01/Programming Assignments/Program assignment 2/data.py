@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
+
+'''
+Import file(reads a text file).
+- Input file must have the following name "routes.txt"
+- Reads content from a text file. 
+- Data must be in the following format "xxx,xxx,xxx"
+- "x" is an integer. "x" is in the range 0 to .....
+- File must contain no spaces.
+
+'''
+
 # Functions required for the program are imported (regex)
 import re
 
-# File containing raw route data is refrenced here. Is allocated a variable.
+# File containing raw route data is referenced here. Is allocated a variable.
 file_name = "routes.txt"
 
 # Stores filtered data retrieved from the raw data file, that has passed the read_route_data function.
@@ -10,7 +21,7 @@ data_list = []
 
 
 def read_route_data():
-# Clears the storage file from previous entries.
+# Clears the storage file from previous entries, and reads the input file.
     data_list.clear()               
     with open(file_name, "r") as file:
         lines = file.readlines()

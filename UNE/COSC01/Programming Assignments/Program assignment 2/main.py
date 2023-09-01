@@ -11,10 +11,6 @@ from data import read_route_data
 from data import data_list
 
 
-# Sets variables
-# extra_buses = 0
-
-
 # Retrieves data_list from the read_dat_file function and sorts using the the "happy_ratio". Sorts in ascending order
 # using the itemgetter function. Unexpected (unlikely) errors are handled here. 
 # Data purity is ensured within the read_data_function in file (routes.py).
@@ -28,7 +24,7 @@ def sort_route_data():
 
 # Inputer is asked to enter number of extra busses that are available. 
 # Maximum number of busses cannot exceed number of routes.
-# Error are handled. Inputer is asked to enter a valid integer.
+# Errors are handled. Inputer is asked to enter a valid integer.
 def extra_bus_routes():
     while True:
         try:
@@ -46,7 +42,7 @@ def extra_bus_routes():
                         print(f"    " + f'{extra_bus_route["route"]}')
                 break
 
-# Values less than or equal to zero are rejected
+# Input values less than or equal to zero are rejected
             elif n <= 0:
                  print("Enter an integer with value greater than 0")
 
@@ -59,7 +55,7 @@ def extra_bus_routes():
         except (ValueError):
                 print("Please enter a value greater than 0, no letters or characters.")
 
-# Data read function is called, sorted data is stored in a variable (data_list()).
+# Data "read" function is called, sorted data is stored in variable (data_list()).
 # The extra bus function is then called
 read_route_data()
 sorted_data_list = sort_route_data()

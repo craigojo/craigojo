@@ -2,8 +2,8 @@
 
 ## About
 > The busstop program was developed following a request from the Mayor of codetown,
-> to develop a program that can be used to address the towns school bus over-crowding issues.
-> The program will be used as a tool to determine which bus routes will benefit most from an addtional bus.
+> to develop a program that can be used to address the towns school bus over-crowding issue.
+> The program will be used as a tool to determine which bus routes will benefit most from an additional bus.
 
 
 ## System Requirements
@@ -13,7 +13,7 @@
 > The *pt2.tgz* contains this *readme.md* file, *main.py* and *data.py* 
 > Copy this file (*pt2.tgz*) to an empty folder on the system and run the following command line.
 > tar -zxf pt2.tgz
-> This will extract the contents of *pt2.tgz* (*readme.md*, *main.py* and *data.py*) to the directory.
+> This will extract the contents of *pt2.tgz* (*readme.md*, *main.py* and *data.py*) to the current directory.
 
 ## Executing the program
 > At the command prompt, enter the following command.
@@ -21,9 +21,9 @@
 
 ## FAQ Inputs
 # The input prompts the user to:
-1. List provided by the Mayor of Codetown contains the number of bus routes.
+1. The data inputer enters the number of routes that can have an extra bus.
 2. Values entered by data inputer cannot be greater than the number of routes contained with the list provided by the Mayor.
-3. The data inputer enters the number of routes that can have an extra bus.
+3. Values are analysed and compared to the list provided by the Mayor of Codetown containing bus route data.
 
 ## Results
 > Data is analysed and produces the following result.

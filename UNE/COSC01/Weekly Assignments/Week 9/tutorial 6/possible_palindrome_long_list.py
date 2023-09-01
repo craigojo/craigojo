@@ -23,7 +23,7 @@ def is_palindrome():
                 
 
 
-is_palindrome()
+is_palindrome(-1)
 
 for i in word_list:
 
