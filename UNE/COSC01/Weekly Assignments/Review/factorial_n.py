@@ -9,5 +9,5 @@ def factorial(n):
 
 # Calculate factorial for the first four integers
 for i in range(1, 5):
-  print('Factorial of', i, 'is', factorial(i))
+  print(f'Factorial of', i, 'is', factorial(i))
         

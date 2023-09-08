@@ -8,25 +8,25 @@ def square():
         turtle.lt(90)
 
 
-# square(bob)
+# # square(bob)
 
-root = Tk()
-root.title('Square Drawerer')
+# root = Tk()
+# root.title('Square Drawer')
 
-frame = ttk.Frame(root, padding='3 3 12 12')
-frame.grid(column=0, row=0, sticky=(N, W, E, S))
+# frame = ttk.Frame(root, padding='3 3 12 12')
+# frame.grid(column=0, row=0, sticky=(N, W, E, S))
 
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
+# root.columnconfigure(0, weight=1)
+# root.rowconfigure(0, weight=1)
 
-craigo = turtle.Turtle()
-g_button = ttk.Button(frame, text='CraiGo', command=square)
-g_button.grid(column=3, row=3, sticky=W)
-
-
-for child in frame.winfo_children():
-    child.grid_configure(padx=5, pady=5)
+# craigo = turtle.Turtle()
+# g_button = ttk.Button(frame, text='Click Me', command=square)
+# g_button.grid(column=3, row=3, sticky=W)
 
 
+# for child in frame.winfo_children():
+#     child.grid_configure(padx=5, pady=5)
 
-root.mainloop()
+
+
+square(4)
