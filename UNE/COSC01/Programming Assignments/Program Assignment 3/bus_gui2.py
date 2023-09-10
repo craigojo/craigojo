@@ -8,33 +8,40 @@ root.minsize(500, 100)
 root.maxsize(500, 100)
 root.resizable(False, False)
 
-totalRating = 0
+total_rating = 0
 
 def rating(value):
-    global totalRating
-    totalRating += value
-    myLabel2.config(text=f"This bus has a cleanliness rating of {totalRating:.2f}")
+    global total_rating
+    try:
+        if value >= 1 and value <= 5:
+            total_rating += value
+            my_label2.config(text=f"This bus has a cleanliness rating of {total_rating:.2f}")
+        else:
+            raise ValueError("Rating should be between 1 and 5.")
+    except ValueError as invalid_entry:
+        my_label2.config(text=str(invalid_entry))
 
-myLabel1 = Label(root, text="Rate the cleanliness of the bus:")
-myLabel2 = Label(root, text="Please Select a Rating")
 
-myButton1 = Button(root, text=":-(", padx=25, borderwidth=4, state=DISABLED)
-myButton2 = Button(root, text="1", padx=25, borderwidth=4, command=lambda: rating(1))
-myButton3 = Button(root, text="2", padx=25, borderwidth=4, command=lambda: rating(2))
-myButton4 = Button(root, text="3", padx=25, borderwidth=4, command=lambda: rating(3))
-myButton5 = Button(root, text="4", padx=25, borderwidth=4, command=lambda: rating(4))
-myButton6 = Button(root, text="5", padx=25, borderwidth=4, command=lambda: rating(5))
-myButton7 = Button(root, text=":-)", padx=25, borderwidth=4, state=DISABLED)
+my_label1 = Label(root, text="Rate the cleanliness of the bus:")
+my_label2 = Label(root, text="Please Select a Rating")
 
-myLabel1.grid(row=0, column=3, columnspan=3)
-myLabel2.grid(row=3, column=3, columnspan=3)
+my_button1 = Button(root, text=":-(", padx=25, borderwidth=4, state=DISABLED)
+my_button2 = Button(root, text="1", padx=25, borderwidth=4, command=lambda: rating(1))
+my_button3 = Button(root, text="2", padx=25, borderwidth=4, command=lambda: rating(2))
+my_button4 = Button(root, text="3", padx=25, borderwidth=4, command=lambda: rating(3))
+my_button5 = Button(root, text="4", padx=25, borderwidth=4, command=lambda: rating(4))
+my_button6 = Button(root, text="5", padx=25, borderwidth=4, command=lambda: rating(5))
+my_button7 = Button(root, text=":-)", padx=25, borderwidth=4, state=DISABLED)
 
-myButton1.grid(row=2, column=1)
-myButton2.grid(row=2, column=2)
-myButton3.grid(row=2, column=3)
-myButton4.grid(row=2, column=4)
-myButton5.grid(row=2, column=5)
-myButton6.grid(row=2, column=6)
-myButton7.grid(row=2, column=7)
+my_label1.grid(row=0, column=3, columnspan=3)
+my_label2.grid(row=3, column=3, columnspan=3)
+
+my_button1.grid(row=2, column=1)
+my_button2.grid(row=2, column=2)
+my_button3.grid(row=2, column=3)
+my_button4.grid(row=2, column=4)
+my_button5.grid(row=2, column=5)
+my_button6.grid(row=2, column=6)
+my_button7.grid(row=2, column=7)
 
 root.mainloop()
