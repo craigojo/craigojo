@@ -27,10 +27,8 @@ def create_widget(label2):
         my_button6.grid(row=2, column=6)
         my_button7.grid(row=2, column=7)
 
-    except Exception as widget_error:
-         label2.config(text=f"Widget Creation error: {widget_error}. Please restart the App, and call the Administrator for support if the issue persists")
-
-
+    except TclError as widget_error:
+        label2.config(text=f"Widget Creation error: {widget_error}. Please restart the App, and call the Administrator for support if the issue persists")
 
 
 try:
