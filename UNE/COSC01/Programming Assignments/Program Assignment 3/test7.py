@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from tkinter import *
 
-root = Tk()
+
 def create_widget(label2):
     try:
         root = Tk()
