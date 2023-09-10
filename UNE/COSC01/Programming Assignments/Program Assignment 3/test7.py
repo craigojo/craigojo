@@ -28,19 +28,8 @@ def create_widget(label2):
         my_button7.grid(row=2, column=7)
 
     except Exception:
-        if root:
-            root.destroy()
-        root = Tk()
-        root.title("Initialization Error")
-        root.geometry("150x100")
-        root.minsize(150, 100)
-        root.maxsize(150, 100)
+         label2.config(text=f"Widget Creation error: {widget_error}. Please restart the App, and call the Administrator for support if the issue persists")
 
-        root.resizable(False, False)
-        my_label = Label(root, text="Initialization error." + "\n" + " Please restart the App. " + "\n" + "Contact admin for support.")
-        my_label.grid(row=0, column=2, columnspan=2)
-        my_button1 = Button(root, text="Ok", padx=25, borderwidth=4, command=root.destroy)
-        my_button1.grid(row=3, column=2, columnspan=2)
 
 
 
