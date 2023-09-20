@@ -22,7 +22,7 @@ while True:
 
         draw_grid(a, b)
 
-        again = input(str("Play again?"))
+        again = str(input("Play again?"))
 
         if again.upper() != 'Y':
             break
