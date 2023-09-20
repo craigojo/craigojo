@@ -11,5 +11,5 @@ def right_justify(input_string):
 
 
 
-value = input("Enter string to justify: ")
+# value = input("Enter string to justify: ")
 right_justify(value)
