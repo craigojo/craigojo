@@ -16,5 +16,12 @@ else:
   print(first, "is equal to", second)
   print("Did you do that on purpose?")
 
-average = (first + second) / 2
-print("The average of the two numbers is: " + str(average))
+# average = (first + second) / 2
+# print("The average of the two numbers is: " + str(average))
+
+
+
+average = int((first + second) / 2)
+
+
+print("The average of the two numbers is: " + (f"{average}"))
