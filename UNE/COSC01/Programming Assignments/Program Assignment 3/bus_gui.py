@@ -3,51 +3,54 @@
 
 # Functions required for the program are imported (tkinker)
 import tkinter as tk
+from tkinter import *
 
 
 # Variable are created
-total_rating = 0            # Stores total value for all ratings (input values of each click from user interface)
+# Stores total value for all ratings (input values of each click from user interface)
+total_rating = 0
+
+# Ratings counter. Stores total number of ratings (number of input clicks from user interface)        
 ratings = 0
+
+
+# Title bar setup
 title = "Cleanliness Rater"
 space = ' '
-extra_space = space * 97        # Ratings counter. The variable stores total number of ratings (number of user input clicks from user interface)
-
-
-
-
-
-# import required module
-from tkinter import *
+padding = space * 80       
  
  
-# function to change properties of button on hover
-def changeOnHover(button, colorOnHover, colorOnLeave):
+# Function: Adjusts properties of buttons on hover.
+def change_on_hover(button, colorOnHover, colorOnLeave):
  
-    # adjusting backgroung of the widget
-    # background on entering widget
+    # Adjust background colour for button widget. Button background on entering.
     button.bind("<Enter>", lambda toggle_colour: button.config(
         background=colorOnHover))
  
-    # background color on leving widget
+    # Adjust background colour for button widget. Button background colour on leaving.
     button.bind("<Leave>", lambda toggle_colour: button.config(
         background=colorOnLeave))
 
 
-# Function created. Responds to inputs from the user interface (fixed input values from user button clicks)
+# Function: Responds to inputs from the user interface (fixed input values from user button clicks)
 def rating(value):
 
-
-    # Sets Global access for required variables outside the try block.
+    # Sets Global access for variable counters.
     global total_rating, ratings
-
 
     # Try block contains error checking. Implemented for highly unlikely scenarios where two buttons are simultaneously clicked.
     try:
         if value >= 1 and value <= 5:
-            ratings += 1                                                                # Increments the ratings counter by 1
-            total_rating += value                                                       # Adds value of rating to total_rating variable
-            rating_average = total_rating / ratings                                     # Calculates the rating average, the resulatant output is returned to 
-                                                                                        # the user interface, value displayed has two decimal places
+
+            # Increments the ratings counter by 1
+            ratings += 1
+
+            # Adds value of rating to total_rating variable
+            total_rating += value
+
+            # Calculates the rating average, the resulatant output is returned to
+            # the user interface, value displayed has two decimal places
+            rating_average = total_rating / ratings
             rating_selected.config(
                 text=f"This bus has an average cleanliness rating of {rating_average:.2f}")
             
@@ -61,12 +64,12 @@ def rating(value):
 
 # Creates the user interface
 root = tk.Tk()
-root.title(f".{extra_space}{title}")                # Displayed in the title bar 
-root.geometry("750x95")
-root.eval('tk::PlaceWindow . center')                         # Sets the overall window size
-root.minsize(750, 95)                           # Window size minimum value, fixed value
-root.maxsize(750, 95)                           # Window size maximum value, fixed value
-root.resizable(False, False)                    # Restricts window size from changes, fixed value
+root.title(f"Release 1.0{padding}{title}")                  # Title bar 
+root.geometry("750x95")                                     # Sets the overall window size
+root.eval('tk::PlaceWindow . center')                       # Centres the window on the users screen
+root.minsize(750, 95)                                       # Window size minimum value, fixed value
+root.maxsize(750, 95)                                       # Window size maximum value, fixed value
+root.resizable(False, False)                                # Restricts window size from changes, fixed value
 
 
 # Sets row 1 an row 3 text, font size and centered.
@@ -84,14 +87,13 @@ my_button6 = tk.Button(root, text="5", bg="lightgrey", padx=50, borderwidth=4, c
 my_button7 = tk.Button(root, text=":-)", padx=10, borderwidth=4, state=tk.DISABLED)
 
 
-# call function with background
-# colors as argument
-
-changeOnHover(my_button2, "aliceblue", "lightgrey")
-changeOnHover(my_button3, "aliceblue", "lightgrey")
-changeOnHover(my_button4, "aliceblue", "lightgrey")
-changeOnHover(my_button5, "aliceblue", "lightgrey")
-changeOnHover(my_button6, "aliceblue", "lightgrey")
+# change_on_hover
+# colours as argument
+change_on_hover(my_button2, "aliceblue", "lightgrey")
+change_on_hover(my_button3, "aliceblue", "lightgrey")
+change_on_hover(my_button4, "aliceblue", "lightgrey")
+change_on_hover(my_button5, "aliceblue", "lightgrey")
+change_on_hover(my_button6, "aliceblue", "lightgrey")
 
 # Sets label positions
 my_label1.grid(row=0, column=2, columnspan=6)
