@@ -17,7 +17,7 @@ ratings = 0
 # Title bar setup
 title = "Cleanliness Rater"
 space = ' '
-padding = space * 80       
+padding = space * 73       
  
  
 # Function: Adjusts properties of buttons on hover.
@@ -64,17 +64,17 @@ def rating(value):
 
 # Creates the user interface
 root = tk.Tk()
-root.title(f"Release 1.0{padding}{title}")                  # Title bar 
-root.geometry("750x95")                                     # Sets the overall window size
+root.title(f"Release 1.0{padding}{title}")                           # Title bar 
+root.geometry("750x105")                                     # Sets the overall window size
 root.eval('tk::PlaceWindow . center')                       # Centres the window on the users screen
-root.minsize(750, 95)                                       # Window size minimum value, fixed value
-root.maxsize(750, 95)                                       # Window size maximum value, fixed value
+root.minsize(750, 105)                                       # Window size minimum value, fixed value
+root.maxsize(750, 105)                                       # Window size maximum value, fixed value
 root.resizable(False, False)                                # Restricts window size from changes, fixed value
 
 
 # Sets row 1 an row 3 text, font size and centered.
-my_label1 = tk.Label(root, anchor="center",font="10", text="Rate the cleanliness of the bus:")
-rating_selected = tk.Label(root, anchor="center",font="10", text="Please select a rating, 1 = Poor... 5 = Excellent")
+my_label1 = tk.Label(root, anchor="center", font=('Arial', 10), text="Rate the cleanliness of the bus:")
+rating_selected = tk.Label(root, anchor="center", font=('Arial', 10), pady=15, text="Please select a rating, 1 = Poor... 5 = Excellent")
 
 
 # Creates buttons, button text and button fixed values.
@@ -96,8 +96,8 @@ change_on_hover(my_button5, "aliceblue", "lightgrey")
 change_on_hover(my_button6, "aliceblue", "lightgrey")
 
 # Sets label positions
-my_label1.grid(row=0, column=2, columnspan=6)
-rating_selected.grid(row=3, column=2, columnspan=6)
+my_label1.grid(row=0, column=2, columnspan=6, padx=(0, 60))
+rating_selected.grid(row=3, column=2, columnspan=6, padx=(0, 60))
 
 
 # Sets button positions, and spacing around buttons
