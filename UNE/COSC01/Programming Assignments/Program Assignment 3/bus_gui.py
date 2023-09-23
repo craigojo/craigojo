@@ -87,8 +87,8 @@ my_button6 = tk.Button(root, text="5", bg="lightgrey", padx=50, borderwidth=4, c
 my_button7 = tk.Button(root, text=":-)", padx=10, borderwidth=4, state=tk.DISABLED)
 
 
-# change_on_hover
-# colours as argument
+# Sets buttons widget colour
+# Colours as argument for each button
 change_on_hover(my_button2, "aliceblue", "lightgrey")
 change_on_hover(my_button3, "aliceblue", "lightgrey")
 change_on_hover(my_button4, "aliceblue", "lightgrey")
