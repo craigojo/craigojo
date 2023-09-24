@@ -3,7 +3,7 @@
 
 '''
 Bus Cleanliness App.
-Records cleanliness for the school bus. Passengers select a rating 1 to 5 in this app. 
+Records cleanliness for the school bus. Passengers select a rating 1 to 5. 
 The app provides an average rating for all selections.
 '''
 
@@ -11,6 +11,7 @@ The app provides an average rating for all selections.
 # Functions required for the program are imported (tkinker)
 import tkinter as tk
 from tkinter import *
+import platform
 
 
 # Variable are created.
@@ -19,18 +20,11 @@ total_rating = 0
 
 # Ratings counter. Stores total number of ratings (number of input clicks from user interface).       
 ratings = 0
-
-
-# Title bar setup
-title = "Cleanliness Rater"
-space = ' '
-padding = space * 73       
- 
  
 # Function: Adjusts properties of buttons on hover.
 def change_on_hover(button, colorOnHover, colorOnLeave):
  
-    # Implements button background on entering.
+    # Implements button background colour on entering.
     button.bind("<Enter>", lambda toggle_colour: button.config(
         background=colorOnHover))
  
@@ -45,15 +39,12 @@ def rating(value):
     # Sets Global access for variable counters.
     global total_rating, ratings
 
-    # Try block contains error checking. Implemented for highly unlikely scenarios where two or more buttons are simultaneously clicked.
+    # Try block contains error checking. 
+    # Implemented for highly unlikely scenarios where two or more buttons are simultaneously clicked.
     try:
         if value >= 1 and value <= 5:
-
-            # Increments the ratings counter by 1.
-            ratings += 1
-
-            # Adds value of rating to total_rating variable.
-            total_rating += value
+            ratings += 1                            # Increments the ratings counter by 1.
+            total_rating += value                   # Adds value of rating to total_rating variable.
 
             # Calculates the rating average, the resulatant output is returned to
             # the user interface, value is displayed to two decimal places.
@@ -71,12 +62,24 @@ def rating(value):
 
 # Creates the user interface.
 root = tk.Tk()
-root.title(f"Release 1.0{padding}{title}")                  # Title bar, includes release number.
-root.geometry("750x105")                                    # Sets the overall window size.
-root.eval('tk::PlaceWindow . center')                       # Centres the window in users screen.
-root.minsize(750, 105)                                      # Window size minimum, fixed value.
-root.maxsize(750, 105)                                      # Window size maximum, fixed value.
-root.resizable(False, False)                                # Restricts window size from changes, fixed value.
+
+# Title bar setup. 
+if platform.system() == "Windows":                  # Sets title position Windows OS
+    title = "Cleanliness Rater"
+    space = ' '
+    padding = space * 73
+
+else:
+    title = "Cleanliness Rater"                     # Sets title position Linux/Unix
+
+
+
+root.title(f"Release 1.0{padding}{title}")          # Title bar, includes release number.
+root.geometry("750x105")                            # Sets the overall window size.
+root.eval('tk::PlaceWindow . center')               # Centres the window in users screen.
+root.minsize(750, 105)                              # Window size minimum, fixed value.
+root.maxsize(750, 105)                              # Window size maximum, fixed value.
+root.resizable(False, False)                        # Restricts window size from changes, fixed value.
 
 
 # Sets row 1 an row 3 text, font size and centres.
