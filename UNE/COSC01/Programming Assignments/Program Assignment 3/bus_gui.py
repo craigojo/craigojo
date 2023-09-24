@@ -68,13 +68,15 @@ if platform.system() == "Windows":                  # Sets title position Window
     title = "Cleanliness Rater"
     space = ' '
     padding = space * 73
+    # Title bar, includes release number.
+    root.title(f"Release 1.0{padding}{title}")
 
 else:
     title = "Cleanliness Rater"                     # Sets title position Linux/Unix
+    root.title(f"{title}")
 
 
-
-root.title(f"Release 1.0{padding}{title}")          # Title bar, includes release number.
+          
 root.geometry("750x105")                            # Sets the overall window size.
 root.eval('tk::PlaceWindow . center')               # Centres the window in users screen.
 root.minsize(750, 105)                              # Window size minimum, fixed value.
