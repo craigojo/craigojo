@@ -54,8 +54,8 @@ def gui_window_size(root):
     # Sets the GUI window size.
     window_width = int(750)
     window_height = int(105)
-    screen_width = int(root.winfo_screenwidth())                 # Gets system screen width
-    screen_height = int(root.winfo_screenheight())               # Gets system screen height
+    screen_width = int(root.winfo_screenwidth())            # Gets system screen width
+    screen_height = int(root.winfo_screenheight())          # Gets system screen height
 
     # Calculates centre for x and y coordinates on system screen.
     x = (screen_width - window_width) // 2
@@ -87,15 +87,14 @@ def change_on_hover(button, colorOnHover, colorOnLeave):
 # Function: Responds to inputs from user interface (fixed input values from user button clicks).
 def rating(value):
 
-    # Sets Global access for variable counters.
-    global total_rating, ratings
+    global total_rating, ratings                            # Sets Global access for variable counters.
 
     # Try block contains error checking. 
     # Implemented for highly unlikely scenarios where two or more buttons are simultaneously clicked.
     try:
         if value >= 1 and value <= 5:
-            ratings += 1                                # Increments the ratings counter by 1.
-            total_rating += value                       # Adds value of rating to total_rating variable.
+            ratings += 1                                    # Increments the ratings counter by 1.
+            total_rating += value                           # Adds value of rating to total_rating variable.
 
             # Calculates the rating average, the resulatant output is returned to
             # the user interface, value is displayed to two decimal places.
@@ -119,11 +118,8 @@ Application is started, GUI created.
 # Start.
 root = tk.Tk()
 
-# Calls function, gui_window_title
-gui_window_setup(root)
-
-# Calls function, gui_window_size
-gui_window_size(root)
+gui_window_setup(root)                                      # Calls function, gui_window_title
+gui_window_size(root)                                       # Calls function, gui_window_size
 
 
 # Sets row 1 an row 3 text, font size and centres.
