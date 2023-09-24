@@ -124,7 +124,7 @@ gui_window_size(root)                                       # Calls function, gu
 
 # Sets row 1 an row 3 text, font size and centres.
 my_label1 = tk.Label(root, anchor="center", font=('Arial', 10), text="Rate the cleanliness of the bus:")
-rating_selected = tk.Label(root, anchor="center", font=('Arial', 10), pady=15, text="Please select a rating, 1 = Poor... 5 = Excellent")
+rating_selected = tk.Label(root, anchor="center", font=('Arial', 10), text="Please select a rating, 1 = Poor... 5 = Excellent")
 
 
 # Calls function, rating . Creates buttons, text, colour, size, button fixed values.
@@ -146,8 +146,8 @@ change_on_hover(my_button5, "aliceblue", "lightgrey")
 change_on_hover(my_button6, "aliceblue", "lightgrey")
 
 # Sets label positions.
-my_label1.grid(row=0, column=2, columnspan=6, padx=(0, 60))
-rating_selected.grid(row=3, column=2, columnspan=6, padx=(0, 60))
+my_label1.grid(row=0, column=2, columnspan=6, padx=(0, 60), pady=(5,0))
+rating_selected.grid(row=3, column=2, columnspan=6, padx=(0, 60), pady=(5,0))
 
 
 # Sets button positions, and spacing around buttons.
