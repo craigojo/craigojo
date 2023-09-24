@@ -123,7 +123,7 @@ gui_window_size(root)                                       # Calls function, gu
 
 
 # Sets row 1 an row 3 text, font size and centres.
-my_label1 = tk.Label(root, anchor="center", font=('Arial', 10), text="Rate the cleanliness of the bus:")
+my_label1 = tk.Label(root, anchor="center", font=('Arial', 10), text="Rate the cleanliness of this bus:")
 rating_selected = tk.Label(root, anchor="center", font=('Arial', 10), text="Please select a rating, 1 = Poor... 5 = Excellent")
 
 

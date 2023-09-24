@@ -11,7 +11,7 @@
 > preferable)
 
 ## Installation
-> The *pt2.tgz* contains this *readme.md* file, *bus_gui.py*
+> The *pt3.tgz* contains this *readme.md* file, *bus_gui.py*
 > Copy this file (*pt3.tgz*) to an empty folder on the system and run the following command line.
 > *tar -zxf pt3.tgz*
 > This will extract the contents of *pt3.tgz (readme.md, bus_gui.py)* to the current directory.
