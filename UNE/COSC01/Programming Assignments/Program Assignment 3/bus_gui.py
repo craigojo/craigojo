@@ -7,20 +7,70 @@ Records cleanliness for the school bus. Passengers select a rating 1 to 5.
 The app provides an average rating for all selections.
 '''
 
-
 # Functions required for the program are imported (tkinker)
 import tkinter as tk
 from tkinter import *
 import platform
 
 
-# Variable are created.
+
+# Variables created here.
 # Stores total value for all ratings (input values of each click from user interface).
 total_rating = 0
 
 # Ratings counter. Stores total number of ratings (number of input clicks from user interface).       
 ratings = 0
+
+
+
+'''
+Functions are defined here.
+'''
+
+def gui_window_setup(root):
+# Exception handling applied for unlikely scenarios where system platform info is not determined.
+    try:
+        system_info = platform.system()
+        if system_info: pass
+    except Exception as system_error:
+        print(f"An error occurred: {system_error}")
+
+    if platform.system() == "Windows":                      # Sets title position Windows OS
+        title = "Cleanliness Rater"
+        space = ' '
+        padding = space * 73
+        # Title bar, includes release number.
+        root.title(f"Release 1.0{padding}{title}")
+
+    else:
+        title = "Cleanliness Rater"                         # Sets title position Linux/Unix
+        root.title(f"{title}")
+    return root
+
+
+
+# Function: Window size setup.
+def gui_window_size(root):
+    # Sets the GUI window size.
+    window_width = int(750)
+    window_height = int(105)
+    screen_width = int(root.winfo_screenwidth())                 # Gets system screen width
+    screen_height = int(root.winfo_screenheight())               # Gets system screen height
+
+    # Calculates centre for x and y coordinates on system screen.
+    x = (screen_width - window_width) // 2
+    y = (screen_height - window_height) // 2
+                                                            # Centres GUI to system screen.
+    root.geometry(
+        f"{window_width}x{window_height}+{x}+{y}"
+        )                                  
+    root.minsize(750, 105)                                  # Window size minimum, fixed value.
+    root.maxsize(750, 105)                                  # Window size maximum, fixed value.
+    root.resizable(False, False)                            # Restricts window size from changes, fixed value.
+    return root
+
  
+
 # Function: Adjusts properties of buttons on hover.
 def change_on_hover(button, colorOnHover, colorOnLeave):
  
@@ -33,6 +83,7 @@ def change_on_hover(button, colorOnHover, colorOnLeave):
         background=colorOnLeave))
 
 
+
 # Function: Responds to inputs from user interface (fixed input values from user button clicks).
 def rating(value):
 
@@ -43,8 +94,8 @@ def rating(value):
     # Implemented for highly unlikely scenarios where two or more buttons are simultaneously clicked.
     try:
         if value >= 1 and value <= 5:
-            ratings += 1                            # Increments the ratings counter by 1.
-            total_rating += value                   # Adds value of rating to total_rating variable.
+            ratings += 1                                # Increments the ratings counter by 1.
+            total_rating += value                       # Adds value of rating to total_rating variable.
 
             # Calculates the rating average, the resulatant output is returned to
             # the user interface, value is displayed to two decimal places.
@@ -60,28 +111,19 @@ def rating(value):
         rating_selected.config(text=str(invalid_entry))
 
 
-# Creates the user interface.
+
+'''
+Application is started, GUI created.
+'''
+
+# Start.
 root = tk.Tk()
 
-# Title bar setup. 
-if platform.system() == "Windows":                  # Sets title position Windows OS
-    title = "Cleanliness Rater"
-    space = ' '
-    padding = space * 73
-    # Title bar, includes release number.
-    root.title(f"Release 1.0{padding}{title}")
+# Calls function, gui_window_title
+gui_window_setup(root)
 
-else:
-    title = "Cleanliness Rater"                     # Sets title position Linux/Unix
-    root.title(f"{title}")
-
-
-          
-root.geometry("750x105")                            # Sets the overall window size.
-root.eval('tk::PlaceWindow . center')               # Centres the window in users screen.
-root.minsize(750, 105)                              # Window size minimum, fixed value.
-root.maxsize(750, 105)                              # Window size maximum, fixed value.
-root.resizable(False, False)                        # Restricts window size from changes, fixed value.
+# Calls function, gui_window_size
+gui_window_size(root)
 
 
 # Sets row 1 an row 3 text, font size and centres.
@@ -89,7 +131,7 @@ my_label1 = tk.Label(root, anchor="center", font=('Arial', 10), text="Rate the c
 rating_selected = tk.Label(root, anchor="center", font=('Arial', 10), pady=15, text="Please select a rating, 1 = Poor... 5 = Excellent")
 
 
-# Creates buttons, text, colour, size, button fixed values.
+# Calls function, rating . Creates buttons, text, colour, size, button fixed values.
 my_button1 = tk.Button(root, text=":-(", padx=10, borderwidth=4, state=tk.DISABLED)
 my_button2 = tk.Button(root, text="1", bg="lightgrey", padx=50, borderwidth=4, command=lambda: rating(1))
 my_button3 = tk.Button(root, text="2", bg="lightgrey", padx=50, borderwidth=4, command=lambda: rating(2))
@@ -99,7 +141,7 @@ my_button6 = tk.Button(root, text="5", bg="lightgrey", padx=50, borderwidth=4, c
 my_button7 = tk.Button(root, text=":-)", padx=10, borderwidth=4, state=tk.DISABLED)
 
 
-# Sets buttons hover colour.
+# Calls function, change_on_hover. Sets buttons hover colour.
 # Colours as argument for each button.
 change_on_hover(my_button2, "aliceblue", "lightgrey")
 change_on_hover(my_button3, "aliceblue", "lightgrey")
