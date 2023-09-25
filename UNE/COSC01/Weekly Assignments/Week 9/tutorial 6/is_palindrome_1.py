@@ -1,6 +1,6 @@
 def is_palindrome(i):
     original = str(i)
-    reversed_str = ' '.join(reversed(original))
+    reversed_str = ''.join(reversed(original))
     print(reversed_str)
 
     if len(i) <= 1:
@@ -8,6 +8,7 @@ def is_palindrome(i):
     elif reversed_str != original:
         return False
     else:
+       print(i[1:-1])
        return True
 
-print(is_palindrome("anna"))
+is_palindrome("barry")
