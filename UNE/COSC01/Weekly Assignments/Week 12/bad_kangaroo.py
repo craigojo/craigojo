@@ -22,16 +22,15 @@ you DO NOT want to emulate this example!
 class Kangaroo:
     """A Kangaroo is a marsupial."""
 
-    def __init__(self, name, contents=None):
+    def __init__(self, name):
         """Initialize the pouch contents.
 
         name: string
         contents: initial pouch contents.
         """
         self.name = name
-        if contents is None:
-            contents = []
-        self.pouch_contents = contents
+
+        self.pouch_contents = []
 
     def __str__(self):
         """Return a string representaion of this Kangaroo.
