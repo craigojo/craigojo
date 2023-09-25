@@ -8,7 +8,7 @@ def mul(x, y):
   return x * y
 
 def div(x, y):
-  return x / Y
+  return x / y
 
 def calculate_strange_value(x, y):
   if y > x:
