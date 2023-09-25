@@ -15,11 +15,11 @@ class Person:
     def get_age(self):
         return self.age
 
-    def set_name(self, new_name):
-        self.name = new_name
+    # def set_name(self, new_name):
+    #     self.name = new_name
 
-    def set_age(self, new_age):
-        self.age = new_age
+    # def set_age(self, new_age):
+    #     self.age = new_age
 
     def is_older_than(self, other):
         return self.age > other.age
@@ -27,6 +27,9 @@ class Person:
 alice = Person("Alice", 28)
 bob = Person("Bob", 19)
 if bob.is_older_than(alice):
-    print("{0} is older than {1}".format(bob.get_name(), alice.get_name()))
+    result = True
+    # print("{0} is older than {1}".format(bob.get_name(), alice.get_name()))
 else:
-    print("{0} is older than {1}".format(alice.get_name(), bob.get_name()))
+    result = False
+    # print("{0} is older than {1}".format(alice.get_name(), bob.get_name()))
+print(result)
