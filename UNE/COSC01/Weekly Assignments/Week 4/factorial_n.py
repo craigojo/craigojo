@@ -12,4 +12,4 @@ def factorial(n):
 
 
 
-factorial(6)
+factorial(5)
