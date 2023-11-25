@@ -32,11 +32,16 @@ if height >= 120:
     age = int(input("What is your age? "))
     if age < 12:
         cost += 5
+        print("Child tickets are $5")
     if age <=18:
         cost += 7
+        print("Youth tickets are $6")
+    elif age >= 45 <= 55:
+        cost += 0
+        print("Everything is going to be ok. Havbe a free ride on us!")
     else:
         cost += 12
-
+        print("Adult tickets are $12")
     photo = input("Would you like a photo? Y/N")
     if photo == "Y":
         cost += 3
